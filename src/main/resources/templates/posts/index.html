@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+<form th:action="@{/logout}" th:method="post">
+    <button>Logout</button>
+</form>
+</div>
+
+<button sec:authorize="isAnonymous()"><a th:href="@{/login}">login</a></button>
+<button sec:authorize="isAnonymous()"><a th:href="@{/sign-up}">sign-up</a></button>
+
+<h2>List of all posts!</h2>
+
+<ul>
+    <li th:each="item : ${post}">
+
+        <!--it makes it clickable go to the URL on click -->
+        <a th:href="@{'/posts/' + ${item.id}}"><h3 th:text="${item.title}"></h3></a>
+        <p th:text="${item.body}"></p>
+
+        <!--it makes it clickable go to the URL on click and it adds the id number to the URL-->
+        <button sec:authorize="isAuthenticated()"><a th:href="'/posts/' + ${item.id} + '/edit'">edit</a></button>
+        <button sec:authorize="isAuthenticated()"><a th:href="'/posts/' + ${item.id} + '/delete'">delete</a></button>
+        <button sec:authorize="isAuthenticated()"><a th:href="'/posts/' + ${item.id} + '/image'">Add images</a></button>
+        <hr/>
+    </li>
+</ul>
+<hr/>
+<hr/>
+<button sec:authorize="isAuthenticated()"><a href="/posts/create">create post</a></button>
+</body>
+</html>

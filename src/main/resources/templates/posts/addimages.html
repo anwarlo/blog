@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h2>add new image</h2>
+
+post id: <p th:text="${postId}"></p>
+
+        <form method="post" th:action="@{'/posts/' + ${postId} + '/image'}">
+            <label for="url">URL:</label>
+            <input id="url" type="url" name="url"/>
+            <button>Submit</button>
+        </form>
+
+
+
+</body>
+</html>

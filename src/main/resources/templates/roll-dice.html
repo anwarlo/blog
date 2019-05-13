@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/navbar :: head('Start Dice Game')"/>
+</head>
+<body>
+<th:block th:replace="fragments/navbar :: nav" />
+
+<h2>Guess what we just rolled:</h2>
+
+<ul>
+    <li><a href="/roll-dice/1">1</a></li>
+    <li><a href="/roll-dice/2">2</a></li>
+    <li><a href="/roll-dice/3">3</a></li>
+    <li><a href="/roll-dice/4">4</a></li>
+    <li><a href="/roll-dice/5">5</a></li>
+    <li><a href="/roll-dice/6">6</a></li>
+</ul>
+<th:block th:replace="fragments/navbar :: footer" />
+</body>
+</html> 

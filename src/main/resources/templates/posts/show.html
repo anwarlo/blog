@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <p th:text="${post.title}"></p>
+    <p th:text="${post.body}"></p>
+    <!--<p th:text="${post.user.email}"></p>-->
+    <br/>
+    <img width="300" height="300" th:each="image : ${post.postImages}" th:src="${image.path}" alt="img"/>
+
+</body>
+</html>
